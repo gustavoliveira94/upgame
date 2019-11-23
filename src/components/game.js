@@ -1,27 +1,27 @@
-import React, { useEffect, useState, useCallback } from 'react';
+import React, { useEffect, useCallback } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
 import Track from '../styles/game/track';
 import Car from '../styles/game/car';
 import Turns from '../styles/init_game/turns';
 
-import { moveCar } from '../actions/game';
+import { moveCar, pauseGame, timeStart } from '../actions/game';
 
 const Game = () => {
     const gameInit = useSelector(({ game }) => game);
     const dispatch = useDispatch();
-    const [state, setState] = useState({ start: 3 });
 
     const numberStart = useCallback(() => {
         const start = setInterval(() => {
-            if (state.start === -1) {
+            if (gameInit.time === -1) {
                 clearInterval(start);
             }
-            setState({ ...state, start: state.start-- });
+            dispatch(timeStart(gameInit.time--));
         }, 1000);
-    }, [state]);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
 
-    const keyMoveCar = e => {
+    const keyAction = e => {
         if (e.keyCode === 97 || e.which === 97) {
             dispatch(moveCar('a'));
         }
@@ -30,6 +30,9 @@ const Game = () => {
         }
         if (e.keyCode === 100 || e.which === 100) {
             dispatch(moveCar('d'));
+        }
+        if (e.keyCode === 27 || e.which === 27) {
+            dispatch(pauseGame());
         }
     };
 
@@ -42,12 +45,12 @@ const Game = () => {
 
     return (
         <Track
-            onKeyPress={e => keyMoveCar(e)}
+            onKeyDown={e => keyAction(e)}
             src={require('../assets/images/CENARIO_anima.gif')}
             move={gameInit.move}
             tabIndex="0"
         >
-            {state.start >= 0 ? <Turns>{state.start}</Turns> : ''}
+            {gameInit.time >= 0 ? <Turns>{gameInit.time}</Turns> : ''}
             <Car
                 src={require('../assets/images/CARRO.png')}
                 position={gameInit.move === 's'}
