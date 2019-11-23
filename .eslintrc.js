@@ -40,5 +40,7 @@ module.exports = {
     'no-console': ['error', { allow: ['log'] }],
     'react-hooks/rules-of-hooks': 'error',
     'react-hooks/exhaustive-deps': 'warn',
+    'no-plusplus': 'off',
+    'no-alert': 'off'
   },
 };
