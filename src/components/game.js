@@ -4,6 +4,8 @@ import { useSelector, useDispatch } from 'react-redux';
 import Track from '../styles/game/track';
 import Car from '../styles/game/car';
 import Turns from '../styles/init_game/turns';
+import Turbo from '../styles/game/turbo';
+import Vehicle from '../styles/game/vehicle';
 
 import { moveCar, pauseGame, timeStart, turbo } from '../actions/game';
 
@@ -30,8 +32,6 @@ const Game = () => {
         }, 10000);
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
-
-    console.log(gameInit);
 
     const keyAction = e => {
         if (e.keyCode === 65 || e.which === 65) {
@@ -69,11 +69,18 @@ const Game = () => {
             tabIndex="0"
         >
             {gameInit.time >= 0 ? <Turns>{gameInit.time}</Turns> : ''}
-            <Car
-                src={require('../assets/images/CARRO.png')}
-                position={gameInit.move === 's'}
-                turbo={gameInit.turbo.start}
-            />
+            <Vehicle turbo={gameInit.turbo.start}>
+                <Car
+                    src={require('../assets/images/CARRO.png')}
+                    position={gameInit.move === 's'}
+                    turbo={gameInit.turbo.start}
+                />
+                <Turbo
+                    turbo={gameInit.turbo.start}
+                    position={gameInit.move === 's'}
+                    src={require('../assets/images/turbo.gif')}
+                />
+            </Vehicle>
         </Track>
     );
 };
