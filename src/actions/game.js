@@ -4,6 +4,7 @@ import {
     PAUSE_GAME,
     TIME_START,
     START_TURBO,
+    COUNT_TURNS,
 } from './actionsTypes';
 
 export const moveCar = data => {
@@ -65,6 +66,29 @@ export const turbo = () => {
             dispatch({
                 type: START_TURBO,
                 data: { start: false, used: true },
+            });
+        }
+    };
+};
+
+export const countTurns = () => {
+    return (dispatch, getState) => {
+        const turns = getState();
+
+        if (turns.game.turns.meters < 20 && turns.game.time < 0) {
+            dispatch({
+                type: COUNT_TURNS,
+                data: {
+                    meters: turns.game.turns.meters + 1,
+                    turn: turns.game.turns.turn,
+                },
+            });
+        }
+
+        if (turns.game.turns.meters >= 20) {
+            dispatch({
+                type: COUNT_TURNS,
+                data: { meters: 0, turn: turns.game.turns.turn + 1 },
             });
         }
     };

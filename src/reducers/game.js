@@ -4,6 +4,7 @@ import {
     PAUSE_GAME,
     TIME_START,
     START_TURBO,
+    COUNT_TURNS,
 } from '../actions/actionsTypes';
 
 const INITIAL_STATE = {
@@ -11,13 +12,16 @@ const INITIAL_STATE = {
     init: {
         start: false,
         name: '',
-        rounds: 0,
     },
     time: 3,
     pause: false,
     turbo: {
         start: false,
         used: false,
+    },
+    turns: {
+        meters: 0,
+        turn: 0,
     },
 };
 
@@ -47,6 +51,11 @@ export const GameReducer = (state = INITIAL_STATE, action) => {
             return {
                 ...state,
                 turbo: action.data,
+            };
+        case COUNT_TURNS:
+            return {
+                ...state,
+                turns: action.data,
             };
         default:
             return state;

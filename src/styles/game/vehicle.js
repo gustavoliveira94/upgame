@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 const Vehicle = styled.div`
-    transition: 0.5s;
+    transition: 1s;
     width: 120px;
     height: 120px;
     position: absolute;
