@@ -3,6 +3,7 @@ import {
     INIT_GAME,
     PAUSE_GAME,
     TIME_START,
+    START_TURBO,
 } from '../actions/actionsTypes';
 
 const INITIAL_STATE = {
@@ -14,6 +15,10 @@ const INITIAL_STATE = {
     },
     time: 3,
     pause: false,
+    turbo: {
+        start: false,
+        used: false,
+    },
 };
 
 export const GameReducer = (state = INITIAL_STATE, action) => {
@@ -37,6 +42,11 @@ export const GameReducer = (state = INITIAL_STATE, action) => {
             return {
                 ...state,
                 time: action.data,
+            };
+        case START_TURBO:
+            return {
+                ...state,
+                turbo: action.data,
             };
         default:
             return state;
