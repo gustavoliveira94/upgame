@@ -1,13 +1,21 @@
 import React, { useEffect, useCallback } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
+// Styles
 import Track from '../styles/game/track';
 import Car from '../styles/game/car';
 import Turns from '../styles/init_game/turns';
 import Turbo from '../styles/game/turbo';
 import Vehicle from '../styles/game/vehicle';
 
-import { moveCar, pauseGame, timeStart, turbo } from '../actions/game';
+// Actions
+import {
+    moveCar,
+    pauseGame,
+    timeStart,
+    turbo,
+    countTurns,
+} from '../actions/game';
 
 const Game = () => {
     const gameInit = useSelector(({ game }) => game);
@@ -51,6 +59,12 @@ const Game = () => {
         }
     };
 
+    const turnsCount = () => {
+        setInterval(() => {
+            dispatch(countTurns());
+        }, 1000);
+    };
+
     useEffect(() => {
         if (gameInit.turbo.start) {
             pauseTurbo();
@@ -60,6 +74,13 @@ const Game = () => {
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [gameInit.init.start, gameInit.turbo]);
+
+    useEffect(() => {
+        if (gameInit.time < 0) {
+            turnsCount();
+        }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [gameInit.time]);
 
     return (
         <Track

@@ -6,6 +6,10 @@ const ContainerLeft = styled.div`
     justify-content: center;
     width: 50%;
     height: 100vh;
+
+    @media (max-width: 870px) {
+        display: none;
+    }
 `;
 
 export default ContainerLeft;
