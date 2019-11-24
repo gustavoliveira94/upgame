@@ -1,4 +1,10 @@
-import { MOVE_CAR, INIT_GAME } from '../actions/actionsTypes';
+import {
+    MOVE_CAR,
+    INIT_GAME,
+    PAUSE_GAME,
+    TIME_START,
+    START_TURBO,
+} from '../actions/actionsTypes';
 
 const INITIAL_STATE = {
     move: 'a',
@@ -6,6 +12,12 @@ const INITIAL_STATE = {
         start: false,
         name: '',
         rounds: 0,
+    },
+    time: 3,
+    pause: false,
+    turbo: {
+        start: false,
+        used: false,
     },
 };
 
@@ -20,6 +32,21 @@ export const GameReducer = (state = INITIAL_STATE, action) => {
             return {
                 ...state,
                 init: action.data,
+            };
+        case PAUSE_GAME:
+            return {
+                ...state,
+                pause: action.data,
+            };
+        case TIME_START:
+            return {
+                ...state,
+                time: action.data,
+            };
+        case START_TURBO:
+            return {
+                ...state,
+                turbo: action.data,
             };
         default:
             return state;

@@ -9,6 +9,7 @@ import Game from './components/game';
 import Init from './components/init';
 import LeftContainer from './components/leftcontainer';
 import RightContainer from './components/rightcontainer';
+import PauseGame from './components/pause';
 
 const App = () => {
     const [state, setState] = useState({ start: 3 });
@@ -33,6 +34,7 @@ const App = () => {
     return (
         <Main>
             {!init.init.start && <Init />}
+            {init.pause && <PauseGame />}
             <LeftContainer />
             <Game />
             <RightContainer />
