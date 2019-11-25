@@ -3,7 +3,6 @@ import { useSelector } from 'react-redux';
 
 // Styles
 import Main from './styles/main';
-import Turn from './styles/game/turn';
 
 // Components
 import Game from './components/game';
@@ -37,10 +36,6 @@ const App = () => {
             {!init.init.start && <Init />}
             {init.pause && <PauseGame />}
             <LeftContainer />
-            <Turn>
-                Turns:
-                <small>{init.turns.turn}</small>
-            </Turn>
             <Game />
             <RightContainer />
         </Main>
