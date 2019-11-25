@@ -5,6 +5,7 @@ import {
     TIME_START,
     START_TURBO,
     COUNT_TURNS,
+    MOVE_OBSTACLE,
 } from '../actions/actionsTypes';
 
 const INITIAL_STATE = {
@@ -22,6 +23,12 @@ const INITIAL_STATE = {
     turns: {
         meters: 0,
         turn: 0,
+        win: false,
+    },
+    obstacle: {
+        position: 'init',
+        side: '',
+        transition: false,
     },
 };
 
@@ -56,6 +63,11 @@ export const GameReducer = (state = INITIAL_STATE, action) => {
             return {
                 ...state,
                 turns: action.data,
+            };
+        case MOVE_OBSTACLE:
+            return {
+                ...state,
+                obstacle: action.data,
             };
         default:
             return state;

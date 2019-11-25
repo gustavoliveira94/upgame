@@ -1,14 +1,13 @@
 import styled from 'styled-components';
 
 const Turn = styled.p`
+    position: absolute;
     display: flex;
     align-items: center;
-    position: absolute;
-    z-index: 3;
-    top: 5px;
-    left: 25%;
+    align-self: flex-start;
     font-family: 'Press Start 2P', cursive;
     font-size: 15px;
+    margin-top: 5px;
 
     small {
         font-size: 15px;

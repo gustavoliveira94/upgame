@@ -4,3 +4,4 @@ export const PAUSE_GAME = 'PAUSE_GAME';
 export const TIME_START = 'TIME_START';
 export const START_TURBO = 'START_TURBO';
 export const COUNT_TURNS = 'COUNT_TURNS';
+export const MOVE_OBSTACLE = 'MOVE_OBSTACLE';
