@@ -12,7 +12,7 @@ const finalCenter = css`
     width: 50px !important;
     height: 50px !important;
     position: absolute;
-    margin-top: 400px !important;
+    margin-top: 600px !important;
 `;
 
 const ObstacleCenter = styled.img`

@@ -111,8 +111,6 @@ const Game = () => {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [gameInit.time]);
 
-    console.log(gameInit.move);
-
     return (
         <Track
             onKeyDown={e => keyAction(e)}

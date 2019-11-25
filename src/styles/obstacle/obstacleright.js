@@ -11,8 +11,8 @@ const finalRight = css`
     width: 50px;
     height: 50px;
     position: absolute;
-    margin-top: 400px !important;
-    margin-left: 250px;
+    margin-top: 600px !important;
+    margin-left: 450px;
 `;
 
 const ObstacleRight = styled.img`

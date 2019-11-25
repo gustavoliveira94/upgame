@@ -12,8 +12,8 @@ const finalLeft = css`
     width: 50px !important;
     height: 50px !important;
     position: absolute;
-    margin-top: 400px !important;
-    margin-left: -300px !important;
+    margin-top: 600px !important;
+    margin-left: -480px !important;
 `;
 
 const ObstacleLeft = styled.img`
