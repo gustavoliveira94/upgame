@@ -79,7 +79,8 @@ export const countTurns = () => {
         if (
             turns.game.turns.meters < 20 &&
             turns.game.time < 0 &&
-            !turns.game.turns.win
+            !turns.game.turns.win &&
+            !turns.game.pause
         ) {
             dispatch({
                 type: COUNT_TURNS,
@@ -120,7 +121,10 @@ export const renderObstacle = () => {
 
         const transition = getState();
 
-        if (transition.game.obstacle.position === 'init') {
+        if (
+            transition.game.obstacle.position === 'init' &&
+            !transition.game.pause
+        ) {
             dispatch({
                 type: MOVE_OBSTACLE,
                 data: { position: 'final', transition: true, side: render },

@@ -8,6 +8,12 @@ const Car = styled.img`
     bottom: 0;
     margin-left: ${props => props.position && '-17px'};
     transition: 0.5s;
+
+    @media (max-width: 455px) {
+        max-width: ${props => (props.turbo ? '80px' : '100px')};
+        max-height: ${props => (props.turbo ? '80px' : '100px')};
+        margin-left: ${props => props.mobilePosition && '-37px'};
+    }
 `;
 
 export default Car;

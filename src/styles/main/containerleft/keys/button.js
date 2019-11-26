@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 const Button = styled.p`
+    font-family: 'Press Start 2P', cursive;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -9,7 +10,7 @@ const Button = styled.p`
     background-color: #302c33;
     border-radius: 5px;
     color: #fff;
-    margin: 0 2px;
+    margin: 0 2px 5px 2px;
     box-shadow: inset 0 5px 10px hsla(0, 0%, 100%, 0.15);
 `;
 

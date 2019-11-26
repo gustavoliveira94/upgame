@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 
 // Componets
 import Obstacles from './obstacles';
+import MobileGame from './mobile';
 
 // Styles
 import Track from '../styles/game/track';
@@ -138,6 +139,7 @@ const Game = () => {
                 <Car
                     src={require('../assets/images/CARRO.png')}
                     position={gameInit.move === 's'}
+                    mobilePosition={gameInit.move === 'a'}
                     turbo={gameInit.turbo.start}
                 />
                 <Turbo
@@ -146,6 +148,7 @@ const Game = () => {
                     src={require('../assets/images/turbo.gif')}
                 />
             </Vehicle>
+            <MobileGame />
         </Track>
     );
 };
