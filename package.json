@@ -2,6 +2,7 @@
   "name": "upgame",
   "version": "0.1.0",
   "private": true,
+  "license": "MIT",
   "dependencies": {
     "axios": "^0.19.0",
     "react": "^16.12.0",
@@ -42,6 +43,7 @@
     "eslint-plugin-prettier": "^3.1.1",
     "eslint-plugin-react": "^7.16.0",
     "eslint-plugin-react-hooks": "^1.7.0",
+    "gh-pages": "^2.1.1",
     "prettier": "^1.19.1"
   }
 }
