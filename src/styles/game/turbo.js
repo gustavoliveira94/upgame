@@ -8,6 +8,10 @@ const Turbo = styled.img`
     bottom: -8px;
     width: 110px;
     margin-left: ${props => (props.position ? '-5px' : '-2px')};
+
+    @media (max-width: 455px) {
+        margin-left: ${props => (props.position ? '-5px' : '-10px')};
+    }
 `;
 
 export default Turbo;

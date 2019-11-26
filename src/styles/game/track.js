@@ -16,6 +16,12 @@ const Track = styled.div`
     background-image: url(${require('../../assets/images/CENARIO_anima.gif')});
     background-repeat: no-repeat;
     background-position: center center;
+
+    @media(max-width: 600px) {
+        background-size: cover;
+        min-width: 100%;
+        height: calc(100% - 150px);
+    }
 `;
 
 export default Track;

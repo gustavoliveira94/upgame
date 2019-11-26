@@ -11,6 +11,10 @@ const Vehicle = styled.div`
     align-items: center;
     justify-content: center;
     margin-bottom: ${props => (props.turbo ? '80px' : '0')};
+
+    @media (max-width: 600px) {
+        margin-bottom: ${props => (props.turbo ? '180px' : '150px')};
+    }
 `;
 
 export default Vehicle;
